@@ -81,7 +81,7 @@ export default function Footer() {
                     <div className="col-span-2 md:col-span-2 lg:col-span-4">
                         <h4 className="text-sm font-semibold text-white mb-4 uppercase tracking-wider">Disclaimer Summary</h4>
                         <p className="text-sm text-red-400 border border-red-900/50 bg-red-900/20 p-3 rounded-lg leading-relaxed">
-                            <strong>Use with Caution:</strong> This tool is designed for permanent data loss. The developer is not responsible for any accidental or malicious misuse.
+                            <strong>Use with Caution:</strong> This tool is designed for permanent data loss. The developers are not responsible for any accidental or malicious misuse.
                         </p>
                     </div>
 
@@ -91,13 +91,13 @@ export default function Footer() {
                 <div className="flex flex-col md:flex-row justify-between items-center text-xs text-slate-600 pt-4">
 
                     <p className="order-2 md:order-1 mt-4 md:mt-0">
-                        &copy; {new Date().getFullYear()} Open Source Security. All Rights Reserved.
+                        &copy; {new Date().getFullYear()} Team PD Lovers. All Rights Reserved.
                     </p>
 
                     <div className="flex items-center order-1 md:order-2 gap-4">
-                        <span className="text-slate-500">Version 2.1.0</span>
+                        <span className="text-slate-500">Version 1.0.0</span>
                         <div className="flex items-center gap-1 text-slate-500">
-                            Built with <Heart className="w-3 h-3 text-red-500 fill-current" /> by Tarundeep
+                            Built with <Heart className="w-3 h-3 text-red-500 fill-current" /> by Tarundeep Singh
                         </div>
                     </div>
                 </div>

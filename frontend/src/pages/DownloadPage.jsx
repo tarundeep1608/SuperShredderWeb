@@ -30,7 +30,7 @@ export default function DownloadPage() {
                             <Download className="w-10 h-10 text-red-500" />
                         </div>
 
-                        <h3 className="text-3xl font-extrabold text-white mb-3 tracking-tight">SuperShredder v2.1.0 (Portable)</h3>
+                        <h3 className="text-3xl font-extrabold text-white mb-3 tracking-tight">SuperShredder v1.0.0 (Portable)</h3>
                         <p className="text-slate-400 mb-8 max-w-lg">
                             Zip archive includes the standalone executable and necessary ADB binaries for a zero-dependency experience.
                         </p>
@@ -56,8 +56,9 @@ export default function DownloadPage() {
                                 variant="danger"
                                 // Applied responsive width pattern: full width on mobile, auto-width on desktop
                                 className="w-full sm:w-auto flex items-center justify-center gap-3 py-3.5 text-lg font-bold shadow-red-500/30"
+                                onClick={() => window.open('https://github.com/tarundeep1608/SuperShredder/releases/download/Stable/SuperShredder.exe', '_self')}
                             >
-                                <Download className="w-5 h-5" /> Direct Download (.zip)
+                                <Download className="w-5 h-5" /> Direct Download (.exe)
                             </Button>
                             <Button
                                 variant="secondary"

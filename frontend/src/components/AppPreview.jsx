@@ -192,7 +192,7 @@ export default function AppPreview() {
                             <div className="h-4 w-px bg-slate-600 mx-2"></div>
                             <div className="flex items-center gap-2 text-slate-300 text-xs font-bold tracking-wide">
                                 <Shield className="w-3 h-3" />
-                                <span>SuperShredder v2.1.0</span>
+                                <span>SuperShredder v1.0.0</span>
                             </div>
                         </div>
                         <div className="text-xs font-mono text-slate-500">
