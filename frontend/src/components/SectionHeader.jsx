@@ -1,14 +1,17 @@
 import React from 'react';
 
-const SectionHeader = ({ title, subtitle, align = 'center' }) => (
-    <div className={`mb-12 ${align === 'center' ? 'text-center' : 'text-left'}`}>
-        <h2 className="text-base text-red-500 font-semibold tracking-wide uppercase mb-2">
-            {subtitle}
-        </h2>
-        <p className="text-3xl leading-8 font-extrabold tracking-tight text-white sm:text-4xl">
-            {title}
-        </p>
-    </div>
-);
-
-export default SectionHeader;
+export default function SectionHeader({ title, subtitle, centered = true }) {
+    return (
+        <div className={`mb-12 ${centered ? 'text-center' : 'text-left'}`}>
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 tracking-tight">
+                {title}
+            </h2>
+            {subtitle && (
+                <p className="text-lg text-slate-400 max-w-2xl mx-auto">
+                    {subtitle}
+                </p>
+            )}
+            <div className={`h-1 w-20 bg-blue-600 rounded mt-6 ${centered ? 'mx-auto' : ''}`}></div>
+        </div>
+    );
+}

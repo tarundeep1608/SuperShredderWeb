@@ -1,44 +1,57 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-
-// Pages
 import HeroSection from './pages/HeroSection';
 import FeaturesGrid from './pages/FeaturesGrid';
-import DownloadPage from './pages/DownloadPage';
+import TechSpecs from './pages/TechSpecs';
+import AppPreview from './components/AppPreview';
 import GuidePage from './pages/GuidePage';
+import DownloadPage from './pages/DownloadPage';
 import ContactPage from './pages/ContactPage';
 
-export default function App() {
-    const [activePage, setActivePage] = useState('home');
-
-    const renderContent = () => {
-        switch (activePage) {
-            case 'home':
-                return (
-                    <>
-                        <HeroSection setActivePage={setActivePage} />
-                        <FeaturesGrid />
-                    </>
-                );
-            case 'download':
-                return <DownloadPage />;
-            case 'guide':
-                return <GuidePage />;
-            case 'contact':
-                return <ContactPage />;
-            default:
-                return <HeroSection setActivePage={setActivePage} />;
-        }
-    };
-
+function App() {
     return (
-        <div className="bg-slate-900 min-h-screen text-slate-200 font-sans selection:bg-red-500 selection:text-white flex flex-col">
-            <Navbar activePage={activePage} setActivePage={setActivePage} />
-            <main className="flex-grow">
-                {renderContent()}
+        <div className="min-h-screen bg-slate-950 text-slate-200 selection:bg-red-500/30">
+            <Navbar />
+
+            <main>
+                {/* Landing Area */}
+                <section id="hero">
+                    <HeroSection />
+                </section>
+
+                {/* The Desktop Simulator - Key Feature */}
+                <section id="preview" className="relative z-10 -mt-10">
+                    <AppPreview />
+                </section>
+
+                {/* Technical Details */}
+                <section id="features">
+                    <FeaturesGrid />
+                </section>
+
+                <section id="specs">
+                    <TechSpecs />
+                </section>
+
+                {/* Documentation */}
+                <section id="guide" className="bg-slate-900/50">
+                    <GuidePage />
+                </section>
+
+                {/* Action Areas */}
+                <section id="download">
+                    <DownloadPage />
+                </section>
+
+                <section id="contact">
+                    <ContactPage />
+                </section>
             </main>
+
             <Footer />
         </div>
     );
 }
+
+export default App;

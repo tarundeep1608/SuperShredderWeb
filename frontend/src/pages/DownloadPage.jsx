@@ -1,76 +1,44 @@
 import React from 'react';
-import { Server, Code, Download, Github, CheckCircle } from 'lucide-react';
-import SectionHeader from '../components/SectionHeader';
+import { Download, AlertTriangle } from 'lucide-react';
 import Button from '../components/Button';
+import SectionHeader from '../components/SectionHeader';
 
-const DownloadPage = () => {
-    const handleDownload = (os) => {
-        // In Django, this would trigger a file serve or redirect
-        alert(`Initiating download for ${os}... (Mock Action)`);
-    };
-
+export default function DownloadPage() {
     return (
-        <div className="py-16 bg-slate-900 min-h-[80vh] flex items-center">
-            <div className="max-w-7xl mx-auto px-4 w-full">
-                <SectionHeader title="Choose Your Version" subtitle="Deployment" />
+        <div className="py-24 bg-gradient-to-b from-slate-950 to-slate-900 text-center px-4">
+            <SectionHeader title="Get SuperShredder" subtitle="Available for Windows 10 and 11." />
 
-                <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                    {/* Option A: Executable */}
-                    <div className="bg-slate-800 rounded-2xl p-8 border border-slate-700 hover:border-red-500 hover:shadow-2xl hover:shadow-red-900/10 transition-all relative overflow-hidden group">
-                        <div className="absolute top-0 right-0 bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-bl-lg z-10">RECOMMENDED</div>
-                        <div className="relative z-10 h-full flex flex-col">
-                            <div className="bg-slate-900/50 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 border border-slate-600 group-hover:border-red-500 transition-colors">
-                                <Server className="w-8 h-8 text-white" />
-                            </div>
-                            <h3 className="text-2xl font-bold text-white mb-2">Standalone Binary</h3>
-                            <p className="text-slate-400 mb-8 flex-grow">
-                                Pre-compiled executable including ADB dependencies.
-                                No Python installation required. Best for end-users.
-                            </p>
-
-                            <div className="space-y-3 mb-8">
-                                {['Portable .exe format', 'Includes ADB binaries', 'No dependencies needed'].map((item, i) => (
-                                    <div key={i} className="flex items-center text-sm text-slate-300">
-                                        <CheckCircle className="w-4 h-4 text-green-500 mr-2" /> {item}
-                                    </div>
-                                ))}
-                            </div>
-
-                            <Button onClick={() => handleDownload('windows')} icon={Download} className="w-full">
-                                Download for Windows
-                            </Button>
-                        </div>
-                        {/* Hover Effect Background */}
-                        <div className="absolute inset-0 bg-gradient-to-br from-red-600/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            <div className="max-w-3xl mx-auto bg-slate-800/30 border border-slate-700 rounded-2xl p-8 md:p-12 mt-8">
+                <div className="flex flex-col items-center">
+                    <div className="bg-blue-600/10 p-4 rounded-full mb-6">
+                        <Download className="w-12 h-12 text-blue-500" />
                     </div>
 
-                    {/* Option B: Source */}
-                    <div className="bg-slate-800 rounded-2xl p-8 border border-slate-700 hover:border-blue-500 hover:shadow-2xl hover:shadow-blue-900/10 transition-all flex flex-col group">
-                        <div className="bg-slate-900/50 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 border border-slate-600 group-hover:border-blue-500 transition-colors">
-                            <Code className="w-8 h-8 text-white" />
-                        </div>
-                        <h3 className="text-2xl font-bold text-white mb-2">Source Code</h3>
-                        <p className="text-slate-400 mb-8 flex-grow">
-                            Complete Python 3.13 source. Modify strategies, rebuild UI,
-                            or audit the wiping logic yourself.
-                        </p>
+                    <h3 className="text-2xl font-bold text-white mb-2">SuperShredder v2.1.0 (Portable)</h3>
+                    <p className="text-slate-400 mb-8">
+                        Zip archive includes executable and necessary ADB binaries. <br/>
+                        <span className="text-sm font-mono text-slate-500">SHA-256: 8f9d...a1b2</span>
+                    </p>
 
-                        <div className="space-y-3 mb-8">
-                            {['Requires Python 3.13+', 'Full customization', 'Build scripts included'].map((item, i) => (
-                                <div key={i} className="flex items-center text-sm text-slate-300">
-                                    <CheckCircle className="w-4 h-4 text-blue-500 mr-2" /> {item}
-                                </div>
-                            ))}
-                        </div>
-
-                        <Button variant="outline" onClick={() => window.open('https://github.com/tarundeep1608/supershredder', '_blank')} icon={Github} className="w-full">
-                            View Repository
+                    <div className="flex flex-col sm:flex-row gap-4 w-full max-w-md">
+                        <Button className="w-full flex items-center justify-center gap-2">
+                            <Download className="w-4 h-4" /> Direct Download
                         </Button>
+                        <Button variant="secondary" className="w-full">
+                            View Source Code
+                        </Button>
+                    </div>
+
+                    <div className="mt-8 flex items-start gap-3 text-left bg-yellow-900/20 p-4 rounded border border-yellow-700/30">
+                        <AlertTriangle className="w-5 h-5 text-yellow-500 flex-shrink-0 mt-0.5" />
+                        <div className="text-sm text-yellow-200/80">
+                            <strong>Warning:</strong> This software is designed to permanently destroy data.
+                            Once wiped, files cannot be recovered. Use with extreme caution.
+                            The developer is not responsible for accidental data loss.
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     );
-};
-
-export default DownloadPage;
+}
