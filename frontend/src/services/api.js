@@ -2,18 +2,35 @@
  * ==================================================================================
  * API LAYER
  * ==================================================================================
- * Currently uses mock data.
- * TODO: Replace with axios/fetch calls to Django REST Framework endpoints.
+ * Connects to the Django Backend
  */
+
+const API_BASE_URL = 'http://127.0.0.1:8000/api/v1';
 
 export const api = {
     submitContactForm: async (data) => {
-        console.log("Submitting to Django:", data);
-        // Simulate network delay
-        return new Promise((resolve) => setTimeout(resolve, 1500));
+        try {
+            const response = await fetch(`${API_BASE_URL}/contact/`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+            });
+
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+
+            return await response.json();
+        } catch (error) {
+            console.error("API Error:", error);
+            throw error;
+        }
     },
 
     getLatestVersion: () => {
-        return "1.2.0";
+        // We can leave this static for now, or create a backend endpoint for it later
+        return "1.0.0";
     }
 };
